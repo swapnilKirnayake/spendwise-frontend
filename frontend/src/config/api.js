@@ -7,7 +7,7 @@ const getBaseUrl = () => {
   }
 
   // If accessed from mobile or other device
-  return `http://${hostname}:4000`;
+  return "https://spendwise-backend-1cf6.onrender.com";
 };
 
 export const API_BASE = getBaseUrl();
