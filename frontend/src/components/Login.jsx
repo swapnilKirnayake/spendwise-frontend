@@ -10,6 +10,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -112,15 +113,23 @@ export default function Login() {
               className="px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500"
               required
             />
+            <div className="relative">
             <input
               aria-label="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500"
+              className="px-4 py-3 rounded-lg bg-white text-black placeholder-gray-500 w-full"
               required
             />
+              <span
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600"
+  >
+    {showPassword ? "🙈" : "👁"}
+  </span>
+            </div>
             <button
               type="submit"
               disabled={loading}
